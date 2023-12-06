@@ -4,7 +4,6 @@ const fs = require("fs");
 const port = process.env.PORT || 8000;
 
 
-
 var requestHandler = (req, res) => {
     var url = req.url;
     const petRegExp = /^\/pets\/(.*)$/;
