@@ -40,7 +40,6 @@ var requestHandler = (req, res) => {
         res.end('Not found');
     }
 
-
 };
 
 
