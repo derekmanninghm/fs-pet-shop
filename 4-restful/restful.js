@@ -19,6 +19,14 @@ app.use(express.json());
 //app.use(logger);
 
 
+app.use((req, res, next) => {
+  if('Basic YWRtaW46ZGFmb2U=' != req.headers.authorization) {
+    res.status(401).set('Content-Type', 'text/plain').set('WWW-Authenticate', 'Basic realm="Required"').send('Unauthorized')
+  }
+  return next();
+})
+
+
 //all pets route handler
 app.get("/pets", (req, res, next) => {
   petshopdb.query("SELECT * FROM petshop")
