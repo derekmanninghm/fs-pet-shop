@@ -20,6 +20,7 @@ app.use(express.json());
 
 
 app.use((req, res, next) => {
+  //for testing purposes, the user and password are:   admin:dafoe
   if('Basic YWRtaW46ZGFmb2U=' != req.headers.authorization) {
     res.status(401).set('Content-Type', 'text/plain').set('WWW-Authenticate', 'Basic realm="Required"').send('Unauthorized')
   }
